@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const initState = {
   userName: { value: "", isValid: false, isTouched: false },
@@ -89,6 +90,7 @@ export const SubmitShift = ({ postShift }) => {
         ></InputValidator>
 
         <button>Submit</button>
+        <Link to="/"> Shifts list </Link>
       </form>
     </div>
   );

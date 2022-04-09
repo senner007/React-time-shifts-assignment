@@ -2,6 +2,7 @@ import "./App.css";
 import { SubmitShift } from "./SubmitShift";
 import { ShiftsOverview } from "./ShiftsOverview";
 import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const url = "http://localhost:5000/api";
 
@@ -27,19 +28,28 @@ function App() {
       },
       body: JSON.stringify(data),
     });
-    return response.json(); 
+    return response.json();
   }
 
   async function postShift(shift) {
-    const mappedObject = {userName : shift.userName.value, startDate : shift.startDate.value, endDate : shift.endDate.value}
+    const mappedObject = {
+      userName: shift.userName.value,
+      startDate: shift.startDate.value,
+      endDate: shift.endDate.value,
+    };
     await postData(url, mappedObject);
     getData();
   }
 
   return (
     <div className="App">
-      <ShiftsOverview shifts={shifts}></ShiftsOverview>
-      <SubmitShift postShift={postShift}></SubmitShift>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<ShiftsOverview shifts={shifts}></ShiftsOverview>} />
+          <Route path="shifts" element={<ShiftsOverview shifts={shifts}></ShiftsOverview>} />
+          <Route path="submit-shift" element={<SubmitShift postShift={postShift}></SubmitShift>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

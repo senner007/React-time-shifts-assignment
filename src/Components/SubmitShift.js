@@ -13,7 +13,7 @@ const initState = {
 
 export const SubmitShift = ({ postShift }) => {
   const [values, setInput] = useState(initState);
-  const [submitAttempt, setSubmitAttempt] = useState(true);
+  const [submitAttempt, setSubmitAttempt] = useState(false);
 
   const handleChange = (prop) => {
     return [
@@ -46,11 +46,11 @@ export const SubmitShift = ({ postShift }) => {
       // submit
       postShift(values);
       setInput(initState);
-      setSubmitAttempt(true);
+      setSubmitAttempt(false);
       return;
     }
     // not submitted
-    setSubmitAttempt(false);
+    setSubmitAttempt(true);
   };
 
   return (

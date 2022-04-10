@@ -11,5 +11,5 @@ export function InputValidator({ input, validator, setValidation, submitAttempt,
       setValidation(isValid);
     }, [isValid]);
   
-    return <>{!isValid && !submitAttempt ? <div className="show-error">{errorMessage}</div>  : <div></div>}</>;
+    return <>{!isValid && submitAttempt ? <div className="show-error">{errorMessage}</div>  : <div></div>}</>;
   }

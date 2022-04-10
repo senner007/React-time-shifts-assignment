@@ -34,10 +34,14 @@ export const SubmitShift = ({ postShift }) => {
   const [setStartDate, setStartDateValidation] = handleChange("startDate");
   const [setEndDate, setEndDateValidation] = handleChange("endDate");
 
+  function checkValidation() {
+    return values.userName.isValid && values.startDate.isValid && values.endDate.isValid
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (values.userName.isValid && values.startDate.isValid && values.endDate.isValid) {
+    if (checkValidation()) {
       // eslint-disable-next-line no-restricted-globals
       if (!confirm("Are you ssure you want to submit?")) {
         return;
@@ -56,7 +60,7 @@ export const SubmitShift = ({ postShift }) => {
   return (
     <div className="formInput">
       <h1>Time Registration </h1>
-      <h2>{!submitAttempt && "Form is not valid!"}</h2>
+      <h2>{submitAttempt && !checkValidation() && "Form is not valid!"}</h2>
       <form className="registration-form" onSubmit={handleSubmit}>
 
         <div className="input-field">

@@ -39,7 +39,7 @@ export const SubmitShift = ({ postShift }) => {
 
     if (values.userName.isValid && values.startDate.isValid && values.endDate.isValid) {
       // eslint-disable-next-line no-restricted-globals
-      if (!confirm("Please confirm submission")) {
+      if (!confirm("Are you ssure you want to submit?")) {
         return;
       }
       alert("Shift successfully submitted!");

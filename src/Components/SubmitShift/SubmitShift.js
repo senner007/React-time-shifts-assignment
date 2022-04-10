@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { InputValidator } from "./InputValidator";
-import { namesValidator, dateValidator } from "../Validators/validators";
+import { InputValidator } from "../InputValidator/InputValidator";
+import { namesValidator, dateValidator } from "../../Validators/validators";
 import "./submit-shift.css";
 
 const initState = {

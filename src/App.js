@@ -1,6 +1,6 @@
 import "./App.css";
-import { SubmitShift } from "./Components/SubmitShift";
-import { ShiftsOverview } from "./Components/ShiftsOverview";
+import { SubmitShift } from "./Components/SubmitShift/SubmitShift";
+import { ShiftsOverview } from "./Components/ShiftsOverview/ShiftsOverview";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { getData, postData } from './Utils/api'
